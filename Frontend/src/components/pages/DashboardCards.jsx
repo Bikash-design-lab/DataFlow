@@ -60,9 +60,21 @@ const DashboardCards = () => {
           )
         );
 
-        const response = await fetch(`${URL}?${params}`);
-        const data = await response.json();
+        console.log('Fetching from URL:', `${URL}?${params}`); // Debug log
 
+        const response = await fetch(`${URL}?${params}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          // Change from 'include' to 'same-origin' since we're not using cookies
+          credentials: 'same-origin'
+        });
+
+        console.log('Response status:', response.status); // Debug log
+        const data = await response.json();
+        console.log('API Response:', data); // Debug log
+        console.log(data.total)
         if (!response.ok) {
           throw new Error(data.message || `HTTP error ${response.status}`);
         }
