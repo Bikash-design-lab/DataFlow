@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Skeleton from './Card/Skeleton';
 
 // Custom debounce hook
 function useDebounce(value, delay) {
@@ -128,6 +129,8 @@ const DashboardCards = () => {
   const toggleAdvancedFilters = () => {
     setShowAdvancedFilters((prev) => !prev);
   };
+
+  if (loading) return <Skeleton />
 
   return (
     <div className="container mx-auto p-2 sm:p-4">
@@ -393,7 +396,6 @@ const DashboardCards = () => {
           </button>
         </div>
       )}
-      {loading && <div className="text-center mb-4 text-gray-600 text-sm sm:text-base">Loading...</div>}
 
       {/* Log Table */}
       <div className="overflow-x-auto">
