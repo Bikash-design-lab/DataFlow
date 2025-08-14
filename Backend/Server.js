@@ -10,7 +10,7 @@ const { logRoute } = require("./Routes/log.routes");
 
 // CORS configuration
 const corsOptions = {
-    origin: ['https://beautiful-otter-056ce4.netlify.app', 'http://localhost:5173'],
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
