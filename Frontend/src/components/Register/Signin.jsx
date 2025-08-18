@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Skeleton from '../pages/Card/Skeleton'
 
 const BASE_URL = import.meta.env.VITE_BASE_URL
 const URL = `${BASE_URL}/user/signin`
@@ -54,7 +55,7 @@ const Signin = () => {
     navigate("/signin")
   }
 
-  if (loading) return <h1 className='text-3xl font-bold justify-center'>Loading...</h1>
+  if (loading) return <Skeleton />
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">

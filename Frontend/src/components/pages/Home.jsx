@@ -11,6 +11,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import Skeleton from './Card/Skeleton';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -146,9 +147,6 @@ const HomePage = () => {
           </div>
         </div>
       </footer>
-
-      {error && <div className="text-red-500 text-center mt-4">{error}</div>}
-      {loading && !error && <div className="text-center py-4">Loading...</div>}
     </div>
   );
 };
